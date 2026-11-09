@@ -1,0 +1,27 @@
+{
+  "mcpServers": {
+    "assistente-os": {
+      "command": "python",
+      "args": [
+        "-m",
+        "mcp_servers.os_server"
+      ],
+      "cwd": "c:/00_Thigago/00_projetos/03_assistente/assistente_desktop",
+      "env": {
+        "PYTHONPATH": "src"
+      }
+    },
+    "assistente-ai": {
+      "command": "python",
+      "args": [
+        "-m",
+        "mcp_servers.ai_server"
+      ],
+      "cwd": "c:/00_Thigago/00_projetos/03_assistente/assistente_desktop",
+      "env": {
+        "PYTHONPATH": "src",
+        "GEMINI_API_KEY": "${GEMINI_API_KEY}"
+      }
+    }
+  }
+}

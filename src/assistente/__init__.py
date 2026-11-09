@@ -1,0 +1,1 @@
+"""Assistente Pessoal de Desktop (screen pet)."""

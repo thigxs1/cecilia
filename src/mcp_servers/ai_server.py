@@ -1,0 +1,1 @@
+"""(futuro) MCP: tools it_support_answer, draft_email (Gemini)."""

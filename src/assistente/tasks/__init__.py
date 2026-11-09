@@ -1,0 +1,1 @@
+"""Módulo 3 (futuro): tarefas, lembretes e alarmes (APScheduler + SQLite)."""

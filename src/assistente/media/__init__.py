@@ -1,0 +1,1 @@
+"""Módulo 2 (futuro): controle de mídia (SMTC) e volume (pycaw)."""

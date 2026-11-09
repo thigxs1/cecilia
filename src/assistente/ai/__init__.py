@@ -1,0 +1,1 @@
+"""Módulo 4 (futuro): secretária IA (Gemini) - suporte T.I. e rascunhos de e-mail."""
