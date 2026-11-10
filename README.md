@@ -39,3 +39,29 @@ Assistente pessoal de desktop com física Shimeji, controle multimídia, automa�
    $env:PYTHONPATH="src"
    python -m assistente
    ```
+
+
+## 🌐 Multi-Máquinas (Hub WebSocket)
+
+Uma máquina roda como **Hub** (com o bot do Telegram); as demais rodam como **node** e se conectam a ela pela internet.
+
+```powershell
+# Gere um segredo forte (o mesmo em todas as máquinas)
+python -c "import secrets; print(secrets.token_urlsafe(32))"
+
+# Máquina principal (Hub + Telegram)
+python -m assistente --mode hub --node-id desktop
+
+# Outras máquinas
+python -m assistente --mode node --node-id notebook --hub-url wss://cecilia.seudominio.com/ws
+```
+
+No Telegram:
+- `/nodes` — lista máquinas online
+- `@notebook pause` — executa o comando no notebook
+- `pause` — executa no Hub (máquina local)
+
+> ⚠️ **Internet pública:** o Hub escuta em `ws://` puro na porta 8765. Exponha-o **sempre via TLS** (`wss://`) — ex.: `cloudflared tunnel --url http://localhost:8765` ou um proxy reverso (Caddy/Nginx) com certificado. Nunca publique a porta sem TLS: o token trafegaria em texto puro.
+> O Telegram agora **exige** `TELEGRAM_ALLOWED_CHAT_ID` configurado; sem ele, todos os comandos são negados.
+
+Testes: `python -m pytest`

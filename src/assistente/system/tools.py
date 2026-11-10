@@ -61,3 +61,4 @@ class SystemTools:
         import ctypes
         ctypes.windll.user32.LockWorkStation()
         return {"status": "success", "message": "Estação de trabalho bloqueada."}
+

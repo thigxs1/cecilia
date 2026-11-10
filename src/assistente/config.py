@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import os
+import socket
 from dataclasses import dataclass, field
 from pathlib import Path
 
@@ -28,3 +29,10 @@ class Settings:
     gemini_api_key: str = os.getenv("GEMINI_API_KEY", "")
     telegram_bot_token: str = os.getenv("TELEGRAM_BOT_TOKEN", "")
     telegram_allowed_chat_id: str = os.getenv("TELEGRAM_ALLOWED_CHAT_ID", "")
+    # Rede multi-nós (Hub WebSocket)
+    cecilia_mode: str = os.getenv("CECILIA_MODE", "standalone")  # standalone | hub | node
+    node_id: str = os.getenv("CECILIA_NODE_ID", "") or socket.gethostname().lower()
+    hub_secret: str = os.getenv("CECILIA_HUB_SECRET", "")
+    hub_host: str = os.getenv("CECILIA_HUB_HOST", "0.0.0.0")
+    hub_port: int = int(os.getenv("CECILIA_HUB_PORT", 8765))
+    hub_url: str = os.getenv("CECILIA_HUB_URL", "")  # ex: wss://cecilia.seudominio.com/ws
